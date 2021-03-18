@@ -1,0 +1,100 @@
+\pdfminorversion=7
+
+\documentclass[
+	a4paper,			% Page size
+	12pt,				% Default font size
+	twoside,			% Two sided style with binding offset
+	openright,			% Start chapters on odd pages
+]{report}
+
+\include{metadata}
+\include{format}
+\include{style}
+
+\newcounter{savepage}
+
+\begin{document}
+	%----------------------------------------------------------
+	% Title page followed by empty page
+	%----------------------------------------------------------
+	\pagestyle{empty}
+	\pagenumbering{gobble}
+	\include{title}
+	\cleardoublepage
+	
+	%----------------------------------------------------------
+	% Roman page numbering for preambel
+	%----------------------------------------------------------
+	\pagenumbering{Roman}
+	
+	%----------------------------------------------------------
+	% Foreword (OPTIONAL)
+	%----------------------------------------------------------
+	\include{foreword}
+	
+	%----------------------------------------------------------
+	% Abstract
+	%----------------------------------------------------------
+	\include{abstract}
+	
+	%----------------------------------------------------------
+	% Table of contents
+	%----------------------------------------------------------
+	\tableofcontents
+	\markboth{\contentsname}{}
+	
+	%----------------------------------------------------------
+	% List of figures / tables / listings (OPTIONAL)
+	%----------------------------------------------------------
+	\listoffigures
+	\markboth{\listfigurename}{}
+	\listoftables
+	\markboth{\listtablename}{}
+	%\lstlistoflistings
+	%\markboth{...}{}
+	
+	%----------------------------------------------------------
+	% List of acronyms (OPTIONAL)
+	%----------------------------------------------------------
+	\include{acronyms}
+	
+	%----------------------------------------------------------
+	% Switch to arabic page numbering
+	%----------------------------------------------------------
+	\cleardoublepage
+	\setcounter{savepage}{\arabic{page}}
+	\pagenumbering{arabic}
+	\setcounter{table}{0}
+	
+	%----------------------------------------------------------
+	% Main content
+	%----------------------------------------------------------
+	\input{content}
+	\cleardoublepage
+	
+	%----------------------------------------------------------
+	% Revert to roman page numbering (OPTIONAL)
+	%----------------------------------------------------------
+	%\pagenumbering{Roman}
+	%\setcounter{page}{\thesavepage}
+	
+	%----------------------------------------------------------
+	% Bibliography
+	%----------------------------------------------------------
+	\bibliography{bibliography}
+	\markboth{\bibname}{}
+	
+	%----------------------------------------------------------
+	% Empty page followed by statutory declaration
+	%----------------------------------------------------------
+	\cleardoublepage
+	\thispagestyle{empty}
+	\hfill
+	\cleardoublepage
+	\include{statutory_declaration}
+	
+	%----------------------------------------------------------
+	% Appendix (OPTIONAL)
+	%----------------------------------------------------------
+	\input{appendix}
+\end{document}

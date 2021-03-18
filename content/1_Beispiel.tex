@@ -1,0 +1,102 @@
+\chapter{Beispielkapitel}
+\label{chp:Beispielkapitel}
+
+Beispiel für \code{einen Codeausschnitt} in einem Text.
+
+Beispiel für \name{einen Eigennamen} in einem Text.
+
+Beispiel für \emphasize{eine Hervorhebung} in einem Text.
+
+\section{Sektion Eins}
+\label{sec:Sektion_Eins}
+
+\blindtext
+
+\subsection{Untersektion Eins}
+\label{sub:Untersektion_Eins}
+
+Beispiel für eine Abkürzung: \ac{hi}
+
+\begin{lstlisting}[
+	language={Python},
+	caption={Code},
+	label={lst:code},
+	float={h!}
+]
+lst = [1, 2, 3]
+
+for i in lst:
+  print(i)
+\end{lstlisting}
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=0.25\linewidth]{images/example-image.png}
+	\caption{Grafik}
+	\label{fig:grafik}
+\end{figure}
+
+\begin{table}[ht!]
+	\selectfont
+	\centering
+	\begin{tabular}{l|ccc}
+		Test & Feld & Feld & Feld \\
+		\hline
+		Eins & 1 & 2 & 3 \\
+		Zwei & 4 & 5 & 6 \\
+		Drei & 7 & 8 & 9 \\
+	\end{tabular}
+	\caption{Tabelle}
+	\label{tab:tabelle}
+\end{table}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.25\linewidth]{images/example-image.png}
+\caption{Grafik}
+\label{fig:grafik2}
+\end{figure}
+
+\begin{table}[ht!]
+	\selectfont
+	\centering
+	\rowcolors{2}{gray!25}{white}
+	\begin{tabular}{ccc}
+		\toprule
+		\belowrulesepcolor{gray!50}
+	    \rowcolor{gray!50}
+		& \bfseries Head & \bfseries Head \\
+		\aboverulesepcolor{gray!50}
+		\midrule
+		x & Wert & Wert \\
+		x & Wert & Wert \\
+		x & Wert & Wert \\
+		x & Wert & Wert \\
+		\aboverulesepcolor{gray!25}
+		\bottomrule
+	\end{tabular}
+	\caption{Tabelle}
+	\label{tab:tabelle2}
+\end{table}
+
+Beispiel für eine Quellenangabe \cite{article}.
+
+\index{Hilfe}
+
+Beispiel für mehrere Quellenangaben \cite{book, inproceedings, misc}.
+
+\newpage
+
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item Listenelement 1,
+	\item Listenelement 2 und
+	\item Listenelement 3.
+\end{itemize}
+
+\begin{enumerate}
+	\setlength\itemsep{0pt}
+	\item Nummeriertes Listenelement 1,
+	\item nummeriertes Listenelement 2 und
+	\item nummeriertes Listenelement 3.
+\end{enumerate}
