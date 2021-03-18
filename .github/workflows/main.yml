@@ -1,0 +1,23 @@
+name: Build LaTeX document
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Install TexLive dependecies
+        run: |
+          sudo apt update
+          sudo apt install texlive texlive-latex-extra texlive-bibtex-extra texlive-lang-german texlive-plain-generic texlive-font-utils texlive-science latexmk
+      - name: Install Gentium dependecies
+        run: |
+          sudo apt install texlive-fonts-extra
+      - name: Compile LaTeX document
+        run: |
+          latexmk Thesis.tex -interaction=nonstopmode -file-line-error -pdf --shell-escape
+      - name: Upload Thesis Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: Thesis
+          path: Thesis.pdf
