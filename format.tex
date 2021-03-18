@@ -1,0 +1,335 @@
+%----------------------------------------------------------
+% Default settings
+%----------------------------------------------------------
+
+% Character encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% German language pack
+\usepackage[ngerman]{babel}
+
+% Page margin
+\usepackage{geometry}
+
+\geometry{
+	top=3cm,
+	bottom=2cm,
+	left=2.5cm,
+	right=2.5cm,
+	bindingoffset=1.5cm
+}
+
+% Graphics
+\usepackage{graphicx}
+
+% To position floats (tables and figures) better
+%\usepackage{float}
+
+% Color
+\usepackage[table]{xcolor}
+
+% Line and title spacing
+\usepackage[onehalfspacing]{setspace}
+
+% No indentation at new paragraph
+\setlength{\parindent}{0pt}
+
+% Prevent widows and orphans (single-line pagebreaks)
+\usepackage[all]{nowidow}
+
+% Improvements to spacing (kerning, ...)
+\usepackage{microtype}
+
+%----------------------------------------------------------
+% Header / Footer
+%----------------------------------------------------------
+
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{15pt}
+
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO,RE]{\nouppercase{\leftmark}}
+\fancyfoot{}
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter\hspace{1ex}#1}{}}
+
+\fancypagestyle{plain}{}
+
+\fancypagestyle{fancyappendix}{
+	\fancyhead{}
+	\fancyhead[LE,RO]{\thepage}
+	\fancyhead[LO,RE]{\appendixname~\nouppercase{\leftmark}}
+	\fancyfoot{}
+}
+
+%----------------------------------------------------------
+% Unnumbered chapters
+%----------------------------------------------------------
+
+\newcommand{\nchapter}[1]{
+	\chapter*{#1}
+	\addcontentsline{toc}{chapter}{#1}
+	\markboth{#1}{}
+}
+
+%----------------------------------------------------------
+% Chapter, section and subsection formatting
+%----------------------------------------------------------
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}{\large\normalfont\bfseries}{\thechapter}{1ex}{}
+\titlespacing*{\chapter}{0pt}{-2\baselineskip}{0pt}
+
+\titleformat{\section}{\normalsize\normalfont\bfseries}{\thesection}{1ex}{}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+
+\titleformat{\subsection}{\normalsize\normalfont}{\thesubsection}{1ex}{}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+\setlength{\parskip}{\baselineskip}
+
+%----------------------------------------------------------
+% Table of content / List of figures / List of tables
+%----------------------------------------------------------
+
+\usepackage[titles]{tocloft}
+
+% Add table of contents to table of contents
+\usepackage{tocbibind}
+
+% Add spacing after titles
+\addtocontents{toc}{\vspace{\baselineskip}}
+\addtocontents{lof}{\vspace{.5\baselineskip}}
+\addtocontents{lot}{\vspace{.5\baselineskip}}
+
+% Chapter formatting in table of contents
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% Entry spacing in table of contents
+\setlength{\cftbeforechapskip}{0pt}
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+
+% Remove indentation in list of figures / tables
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+
+% Prefixes for entries in list of figures
+\renewcommand{\cftfigpresnum}{Abbildung }
+\renewcommand{\cftfigaftersnum}{:}
+\newlength{\myfiglength}
+\settowidth{\myfiglength}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\myfiglength + 1.5em}
+
+% Prefixes for entries in list of tables
+\renewcommand{\cfttabpresnum}{Tabelle }
+\renewcommand{\cfttabaftersnum}{:}
+\newlength{\mytablength}
+\settowidth{\mytablength}{\cfttabpresnum}
+\setlength{\cfttabnumwidth}{\dimexpr\mytablength + 1.5em}
+
+% List of figures / tables counter
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+%----------------------------------------------------------
+% Links, PDF metadata and bookmarks
+%----------------------------------------------------------
+
+\usepackage[hidelinks,bookmarksdepth=2]{hyperref}
+
+\hypersetup{
+	pdfauthor={\metadataAuthor},
+	pdftitle={\metadataTitle},
+	pdfsubject={\metadataSubject},
+	pdfkeywords={\metadataKeywords},
+	bookmarksnumbered
+}
+
+% Makes links jump to the start of a figure / table / listing instead of the caption
+\usepackage{caption}
+
+% Define fullref (autoref + nameref)
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+
+%----------------------------------------------------------
+% Bibliography style
+% (Must be after \usepackage{hyperref})
+%----------------------------------------------------------
+
+\usepackage[nosectionbib]{apacite}
+
+\bibliographystyle{apacite}
+
+% Rename bibliography
+\renewcommand{\refname}{Literaturverzeichnis}
+
+% Spacing between sources
+\setlength{\bibitemsep}{.5\baselineskip}
+
+%----------------------------------------------------------
+% List of acronyms
+%----------------------------------------------------------
+
+\usepackage[printonlyused]{acronym}
+
+%----------------------------------------------------------
+% Appendix
+%----------------------------------------------------------
+
+\usepackage[titletoc,page,toc]{appendix}
+
+% Rename appendix page and table of contents entry
+\renewcommand{\appendixpagename}{Anhang}
+\renewcommand{\appendixtocname}{Anhang}
+
+% Prevent sections and subsections from being added to table of contents
+\newcommand{\appendixtoc}{
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+}
+
+% Add "Anhang" to appendix chapter
+\newcommand{\appendixchap}{
+	\titleformat{\chapter}{\large\normalfont\bfseries}{Anhang \thechapter}{1ex}{}
+}
+
+% Remove chapter number from section number
+\newcommand{\appendixsec}{
+	\renewcommand{\thesection}{\arabic{section}}
+}
+
+% Appendix page, figure, table and listing numbering
+\newcommand{\appendixnumbering}{
+	\renewcommand{\thepage}{\Alph{chapter}\,\arabic{page}}
+	\renewcommand{\thefigure}{\Alph{chapter}\arabic{figure}}
+	\renewcommand{\thetable}{\Alph{chapter}\arabic{table}}
+	\renewcommand{\thelstlisting}{\Alph{chapter}\arabic{lstlisting}}
+}
+
+% Reset page, figure, table and listing numbers
+% Also calls \appendixnumbering to reset single operations
+\newcommand{\appendixnum}{
+	\cleardoublepage
+	\appendixnumbering
+	\setcounter{page}{1}
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\setcounter{lstlisting}{0}
+}
+
+% To remove numbers from figures, tables or listings
+% Needed if only a single one appears in the following appendix
+\newcommand{\appendixsinglefig}{
+	\renewcommand{\thefigure}{\Alph{chapter}}
+}
+
+\newcommand{\appendixsingletab}{
+	\renewcommand{\thetable}{\Alph{chapter}}
+}
+
+\newcommand{\appendixsinglelst}{
+	\renewcommand{\thelstlisting}{\Alph{chapter}}
+}
+
+%----------------------------------------------------------
+% Source code (listings)
+%----------------------------------------------------------
+
+\usepackage{listings}
+
+% Chapter formatting in list of listings
+\renewcommand{\lstlistingname}{Quelltext}
+\renewcommand{\lstlistlistingname}{\lstlistingname verzeichnis}
+
+% Entry spacing in list of listings
+% (with the option to make it two-column compatible)
+\makeatletter
+\renewcommand\lstlistoflistings{%
+	%\if@twocolumn
+	%\@restonecoltrue\onecolumn
+	%\else
+	%\@restonecolfalse
+	%\fi
+	\addchap{\lstlistlistingname}
+	\vspace*{1.5\topskip}
+	\@mkboth{\lstlistlistingname}
+	{\lstlistlistingname}
+	\@starttoc{lol}
+	%\if@restonecol\twocolumn\fi
+}
+\makeatother
+
+% Prefixes for entries in list of listings
+\makeatletter
+\AtBeginDocument{
+	\let\c@lstlisting\relax
+	\newlistof[chapter]{lstlisting}{lol}{\lstlistlistingname}
+	\renewcommand{\cftlstlistingpresnum}{\lstlistingname\ }
+	\renewcommand{\cftlstlistingaftersnum}{:}
+	\newlength{\mylstlistinglength}
+	\settowidth{\mylstlistinglength}{\cftlstlistingpresnum}
+	\setlength{\cftlstlistingnumwidth}{\dimexpr\mylstlistinglength + 1.5em}
+	%\setlength{\cftbeforelstlistingskip}{-\baselineskip}
+	\counterwithout{lstlisting}{chapter}
+}
+\makeatother
+
+%----------------------------------------------------------
+% Footnotespacing
+%----------------------------------------------------------
+
+%\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
+
+%----------------------------------------------------------
+% Extra packages
+%----------------------------------------------------------
+
+% Draw
+\usepackage{tikz}
+\usetikzlibrary{shapes,calc,positioning}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{pdflscape}
+
+\newcommand*{\belowrulesepcolor}[1]{%
+	\noalign{%
+		\kern-\belowrulesep
+		\begingroup
+		\color{#1}%
+		\hrule height\belowrulesep
+		\endgroup
+	}%
+}
+\newcommand*{\aboverulesepcolor}[1]{%
+	\noalign{%
+		\begingroup
+		\color{#1}%
+		\hrule height\aboverulesep
+		\endgroup
+		\kern-\aboverulesep
+	}%
+}
+
+% Flexible enumerations
+\usepackage{enumitem}
+
+% Patches macros from other packages
+\usepackage{etoolbox}
+% Prevent pagebreaks inside bibliography entries
+\apptocmd{\thebibliography}{\interlinepenalty 10000\relax}{}{}
+
+% Extra symbols
+\usepackage{amssymb}
+
+% Blindtext
+\usepackage{blindtext}

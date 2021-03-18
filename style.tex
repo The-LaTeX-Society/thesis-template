@@ -1,0 +1,64 @@
+%----------------------------------------------------------
+% Styles
+%----------------------------------------------------------
+
+\newcommand{\code}[1]{{\ttfamily #1}}
+\newcommand{\name}[1]{{,,#1``}}
+\newcommand{\emphasize}[1]{{\itshape #1}}
+
+%----------------------------------------------------------
+% Font
+%----------------------------------------------------------
+
+% Change font to sans serif
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{gentium}
+\usepackage{inconsolata}
+
+%----------------------------------------------------------
+% Source code (listings)
+%----------------------------------------------------------
+
+% Code style colors
+\definecolor{lstbgr}{RGB}{245,245,245}
+\definecolor{lstkeyword}{RGB}{0,0,255}
+\definecolor{lststring}{RGB}{163,21,21}
+\definecolor{lstcomment}{RGB}{0,128,0}
+
+% Default format
+\lstset{
+	language=Python,%						the language of the code
+	backgroundcolor=\color{lstbgr},%		choose the background color
+	basicstyle=\ttfamily\footnotesize,%		the size of the fonts that are used for the code
+	keywordstyle=\color{lstkeyword},%		keyword style
+	stringstyle=\color{lststring},%			the style that is used for strings
+	commentstyle=\color{lstcomment},%		comment style
+	numberstyle=\ttfamily\footnotesize,%	the style that is used for the line-numbers
+	tabsize=2,%								sets default tabsize to 2 spaces
+	keepspaces=true,%						keeps spaces in text
+	showstringspaces=false,%				use a symbol for spaces in strings
+	breakatwhitespace=false,%				sets if automatic breaks should only happen at whitespace
+	breaklines=true,%						sets automatic line breaking
+	frame=single,%							adds a frame around the code
+	captionpos=b,%							where to put the caption
+	numbers=left,%							where to put the line-numbers
+	numbersep=12pt,%						how far the line-numbers are from the code
+	xleftmargin=26.2pt,%					sets left margin for entire box to equal table margin
+	framexleftmargin=23pt,%					sets left margin for frame to also surround line numbers
+	framexrightmargin=-3.2pt,%				sets left margin for frame to be equal on both sides
+}
+
+% Define unformatted language style
+\lstdefinelanguage{none}
+{
+	identifierstyle=
+}
+
+%----------------------------------------------------------
+% Define new words with hyphenation
+%----------------------------------------------------------
+
+\hyphenation{Back-slash}
+\hyphenation{Tool-um-ge-bung}
+\hyphenation{Tool-um-ge-bun-gen}
