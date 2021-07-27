@@ -17,6 +17,28 @@
 \usepackage{inconsolata}
 
 %----------------------------------------------------------
+% Depth of section entries
+% 0 chapters only
+% 1 chapters and sections
+% 2 chapters - subsections
+% 3 chapters - subsubsections
+% 4 chapters - paragraphs
+%----------------------------------------------------------
+
+% Numbering of headers
+\setcounter{secnumdepth}{2}
+
+% Table of content entries
+\setcounter{tocdepth}{2}
+
+% PDF bookmarks
+% Initial state of PDF bookmarks (open / closed) can also be defined
+\hypersetup{
+	bookmarksdepth=2,
+	bookmarksopen=false
+}
+
+%----------------------------------------------------------
 % Source code (listings)
 %----------------------------------------------------------
 
