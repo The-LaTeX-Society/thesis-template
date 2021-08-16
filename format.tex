@@ -298,7 +298,20 @@
 %\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
 
 %----------------------------------------------------------
+% Patches
+%----------------------------------------------------------
+
+% Patches macros from other packages
+\usepackage{etoolbox}
+
+% Prevent pagebreaks inside bibliography entries
+\apptocmd{\thebibliography}{\interlinepenalty 10000\relax}{}{}
+
+%----------------------------------------------------------
 % Extra packages
+% 
+% Below you can find some useful packages and commands
+% They are safe to delete and you can add new packages here
 %----------------------------------------------------------
 
 % Draw
@@ -332,13 +345,8 @@
 % Flexible enumerations
 \usepackage{enumitem}
 
-% Patches macros from other packages
-\usepackage{etoolbox}
-% Prevent pagebreaks inside bibliography entries
-\apptocmd{\thebibliography}{\interlinepenalty 10000\relax}{}{}
-
-% Extra symbols
-\usepackage{amssymb}
+% Extra symbols and notations
+\usepackage{amsmath, amsthm, amssymb}
 
 % Blindtext
 \usepackage{blindtext}
