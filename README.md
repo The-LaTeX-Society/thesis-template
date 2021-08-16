@@ -109,7 +109,7 @@ Außerdem wird hier die Silbentrennung unbekannter Wörter definiert.
 
 Es ist empfohlen, hier definierte Hervorhebungen (```\code{...}```) zu verwenden, anstatt z. B. bei jedem Quelltext in der Thesis erneut ```\ttfamily``` zu verwenden.
 
-### Nicht zu bearbeitende Dateien
+### Nicht / selten zu bearbeitende Dateien
 
 Die folgenden Dateien müssen nur in Sonderfällen bearbeitet werden. Hier werden diverse Formatierungen, Seitenlayouts und Standardtexte festgelegt.
 
@@ -117,3 +117,29 @@ Die folgenden Dateien müssen nur in Sonderfällen bearbeitet werden. Hier werde
 - format.tex
 - statutory_declaration.tex
 - title.tex
+
+#### abstract.tex
+
+Hier werden die Dateien des Abstract-Verzeichnisses eingebunden.
+
+Muss nicht bearbeitet werden.
+
+#### format.tex
+
+Hier werden alle Pakete eingebunden und Formatierungen entsprechend der HFU-Vorgabe definiert.
+
+Am Ende findet sich ein Abschnitt für weitere Pakete, sollten spezifische Pakete benötigt werden. Außerdem können die in diesem Abschnitt eingebundenen Pakete und definierten Befehle gelöscht werden, sollten sie unerwünscht sein.
+
+Kann in Sonderfällen oder zum Einbinden weiterer Pakete bearbeitet werden.
+
+#### statutory_declaration.tex
+
+Hier ist der HFU-Standardtext der eidesstattlichen Erklärung definiert. Für Namen, Datum und Ort wird sich bei den Metadaten bedient.
+
+Muss nicht bearbeitet werden.
+
+#### title.tex
+
+Hier ist das Layout der Titelseite definiert. Bedient sich zum Befüllen bei den Metadaten.
+
+Muss nicht bearbeitet werden.
