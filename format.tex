@@ -267,7 +267,8 @@
 	%\else
 	%\@restonecolfalse
 	%\fi
-	\addchap{\lstlistlistingname}
+	\chapter*{\lstlistlistingname}
+	\addcontentsline{toc}{chapter}{\lstlistlistingname}
 	\vspace*{1.5\topskip}
 	\@mkboth{\lstlistlistingname}
 	{\lstlistlistingname}
