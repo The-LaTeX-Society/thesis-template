@@ -41,6 +41,9 @@
 % Improvements to spacing (kerning, ...)
 \usepackage{microtype}
 
+% Patches macros from other packages and classes
+\usepackage{etoolbox}
+
 %----------------------------------------------------------
 % Header / Footer
 %----------------------------------------------------------
@@ -114,8 +117,8 @@
 
 % Add spacing after titles
 \addtocontents{toc}{\vspace{\baselineskip}}
-\addtocontents{lof}{\vspace{.5\baselineskip}}
-\addtocontents{lot}{\vspace{.5\baselineskip}}
+\addtocontents{lof}{\vspace{\baselineskip}}
+\addtocontents{lot}{\vspace{\baselineskip}}
 
 % Chapter formatting in table of contents
 \renewcommand{\cftchapfont}{\normalfont}
@@ -149,6 +152,14 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
+% Prevent spacing between figures / tables of different chapters
+% (Uses etoolbox package)
+% (Must be before including hyperref package as it changes \@chapter to \Hy@org@chapter)
+\makeatletter
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}% LoF
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}% LoT
+\makeatother
+
 %----------------------------------------------------------
 % Links, PDF metadata and bookmarks
 %----------------------------------------------------------
@@ -171,7 +182,7 @@
 
 %----------------------------------------------------------
 % Bibliography style
-% (Must be after \usepackage{hyperref})
+% (Must be after including hyperref package)
 %----------------------------------------------------------
 
 \usepackage[nosectionbib]{apacite}
@@ -183,6 +194,10 @@
 
 % Spacing between sources
 \setlength{\bibitemsep}{.5\baselineskip}
+
+% Prevent pagebreaks inside bibliography entries
+% (Uses etoolbox package)
+\apptocmd{\thebibliography}{\interlinepenalty 10000\relax}{}{}
 
 %----------------------------------------------------------
 % List of acronyms
@@ -297,16 +312,6 @@
 %----------------------------------------------------------
 
 %\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
-
-%----------------------------------------------------------
-% Patches
-%----------------------------------------------------------
-
-% Patches macros from other packages
-\usepackage{etoolbox}
-
-% Prevent pagebreaks inside bibliography entries
-\apptocmd{\thebibliography}{\interlinepenalty 10000\relax}{}{}
 
 %----------------------------------------------------------
 % Extra packages
