@@ -161,6 +161,16 @@
 \makeatother
 
 %----------------------------------------------------------
+% Footnotespacing
+%----------------------------------------------------------
+
+% (Must be before including hyperref package as it tries to link footnotes which doesn't work if they are changed afterwards)
+\usepackage[hang]{footmisc}
+
+\setlength{\footnotemargin}{.8em}
+
+
+%----------------------------------------------------------
 % Links, PDF metadata and bookmarks
 %----------------------------------------------------------
 
@@ -306,12 +316,6 @@
 	\counterwithout{lstlisting}{chapter}
 }
 \makeatother
-
-%----------------------------------------------------------
-% Footnotespacing
-%----------------------------------------------------------
-
-%\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
 
 %----------------------------------------------------------
 % Extra packages / commands
