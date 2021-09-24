@@ -314,17 +314,21 @@
 %\deffootnote[1em]{1em}{1em}{\textsuperscript{\thefootnotemark}\,}
 
 %----------------------------------------------------------
-% Extra packages
+% Extra packages / commands
 % 
 % Below you can find some useful packages and commands
 % They are safe to delete and you can add new packages here
 %----------------------------------------------------------
 
+%-----------------------------
 % Draw
+
 \usepackage{tikz}
 \usetikzlibrary{shapes,calc,positioning}
 
+%-----------------------------
 % Tables
+
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{pdflscape}
@@ -348,11 +352,36 @@
 	}%
 }
 
+%-----------------------------
+% Define textlabel-command to be able to reference text
+
+% Avoid expanding ref in textual label (not required with hyperref)
+\MakeRobust{\ref}
+
+% Define command
+\makeatletter
+\newcommand{\textlabel}[3][]{%
+	\@bsphack%
+	\csname phantomsection\endcsname% in case hyperref is used
+	\def\tst{#1}%
+	\ifx\tst\empty\def\@currentlabel{#2}{\label{#3}}%
+	\else\def\@currentlabel{#1}{\label{#3}}\fi%
+	\@esphack%
+	#2%
+}
+\makeatother
+
+%-----------------------------
 % Flexible enumerations
+
 \usepackage{enumitem}
 
+%-----------------------------
 % Extra symbols and notations
+
 \usepackage{amsmath, amsthm, amssymb}
 
+%-----------------------------
 % Blindtext
+
 \usepackage{blindtext}
