@@ -1,0 +1,111 @@
+\chapter{Weitere Beispiele}
+\label{chp:Weitere_Beispiele}
+
+\section{Textformatierung}
+\label{sec:Textformatierung}
+
+Beispiel für \code{einen Codeausschnitt} in einem Text.
+
+Beispiel für \name{einen Eigennamen} in einem Text.
+
+Beispiel für \emph{eine Hervorhebung} in einem Text.
+
+Text kann auch {\color{red}eingefärbt} werden.
+Es empfiehlt sich, für alle im Text verwendeten Hervorhebungsarten jedoch einen eigenen Befehl in style.tex zu definieren.
+Dies garantiert Einheitlichkeit, insbesondere im Fall einer Änderung dieser Hervorhebung.
+
+Schriftgrößen sollten im Fließtext nie geändert werden. Für Tabellen und Abbildungen stehen folgende Befehle für entsprechende Fontgröße zur Verfügung:
+
+\begin{table}[ht!]
+	\selectfont
+	\centering
+	\begin{tabular}{|l|r|}
+		\hline
+		tiny & 6pt \\\hline
+		scriptsize & 8pt \\\hline
+		footnotesize & 10pt \\\hline
+		small & 11pt \\\hline
+		normalsize & 12pt \\\hline
+		large & 14pt \\\hline
+		Large & 17pt \\\hline
+		LARGE & 20pt \\\hline
+		huge & 25pt \\\hline
+		Huge & 25pt \\\hline
+	\end{tabular}
+	\caption{Schriftgrößen}
+	\label{tab:fontsize}
+\end{table}
+
+\section{Aufzählungen}
+\label{sec:Aufzaehlungen}
+
+\begin{itemize}
+	\item Listenelement 1,
+	\item Listenelement 2 und
+	\item Listenelement 3.
+\end{itemize}
+
+Für eine engere Darstellung kann der Abstand verkleinert werden.
+
+\begin{enumerate}
+	\setlength\itemsep{0pt}
+	\item Nummeriertes Listenelement 1,
+	\item nummeriertes Listenelement 2 und
+	\item nummeriertes Listenelement 3.
+\end{enumerate}
+
+\subsection{Veränderte Aufzählungssymbole}
+\label{sub:Veraenderte_Aufzaehlungssymbole}
+
+Mit dem Parameter \emph{label} kann die Aufzählung individuell gestaltet werden.
+Möglich sind zum Beispiel
+
+\begin{enumerate}[label=\Roman*.)]
+	\setlength\itemsep{0pt}
+	\item \textbackslash{}alph* für Klein- und \textbackslash{}Alph* für Großbuchstaben,
+	\item \textbackslash{}arabic* für Zahlen und
+	\item \textbackslash{}roman* für kleine und \textbackslash{}Roman* für große römische Zahlen.
+\end{enumerate}
+
+Mit weiteren Parametern wie z.\,B. \emph{align} und \emph{leftmargin} kann die Darstellung weiter angepasst werden.
+
+\section{Referenzen}
+\label{sec:Referenzen}
+
+Kapitel, Schaubilder usw. können über ihr optionales Label referenziert werden.
+
+Was alles in der Referenz stehen soll kann über verschiedene Befehle festgelegt werden.
+
+\begin{tabular}{@{}ll@{}}
+  ref & \ref{sec:Referenzen} \\
+  nameref & \nameref{sec:Referenzen} \\
+  autoref & \autoref{sec:Referenzen} \\
+  fullref & \fullref{sec:Referenzen} \\
+\end{tabular}
+
+Labels können auch als \textlabel[TL]{Textlabel (TL)}{text:tl} definiert und später erneut referenziert werden: \ref{text:tl}.
+
+\section{Abkürzungen}
+\label{sec:Abkuerzungen}
+
+Abkürzungen werden in der acronyms.tex Datei angelegt.
+
+Beim ersten Aufruf wird der volle Text angezeigt: \ac{HFU}.
+
+Bei erneutem Aufruf wird nurnoch die Abkürzung angezeigt: \ac{HFU}.
+
+\section{Quellen}
+\label{sec:Quellen}
+
+Quellen können, wie Referenzen, mit verschiedenen Befehlen referenziert werden.
+
+\begin{tabular}{@{}ll@{}}
+  cite & \cite{mustermann20} \\
+  citeA & \citeA{mustermann20} \\
+  citeauthor & \citeauthor{mustermann20} \\
+  citeyear & \citeyear{mustermann20} \\
+\end{tabular}
+
+Es können auch mehrere Quellen gleichzeitig zitiert werden \cite{musterfrau99,doe12,dupont96}
+
+Alternativ können auch Fußnoten zum Quellenvermerk dienen \footnote{Beispiel für eine Fußnote}.

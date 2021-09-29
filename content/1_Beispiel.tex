@@ -1,47 +1,31 @@
-\chapter{Beispielkapitel}
-\label{chp:Beispielkapitel}
+\chapter{Abbildungen, Tabellen und Code}
+\label{chp:Abbildungen_Tabellen_und_Code}
 
-Beispiel für \code{einen Codeausschnitt} in einem Text.
-
-Beispiel für \name{einen Eigennamen} in einem Text.
-
-Beispiel für \emphasize{eine Hervorhebung} in einem Text.
-
-\section{Sektion Eins}
-\label{sec:Sektion_Eins}
-
-\blindtext
-
-\subsection{Untersektion Eins}
-\label{sub:Untersektion_Eins}
-
-Beispiel für eine Abkürzung: \ac{hi}
-
-\subsubsection{Unteruntersektion Eins}
-
-\paragraph{Paragraph Eins}
-
-\begin{lstlisting}[
-	language={Python},
-	caption={Code},
-	label={lst:code},
-	float={h!}
-]
-lst = [1, 2, 3]
-
-for i in lst:
-  print(i)
-\end{lstlisting}
+\section{Grafiken}
+\label{sec:Grafiken}
 
 \begin{figure}[ht!]
 	\centering
 	\includegraphics[width=0.25\linewidth]{images/example-image.png}
-	\caption{Grafik}
-	\label{fig:grafik}
+	\caption{Ein importiertes Bild}
+	\label{fig:imported}
+	Quelle: \citeA{mustermann20}
 \end{figure}
 
+\begin{figure}[ht!]
+	\centering
+  \begin{tikzpicture}
+    \node[draw, circle, minimum width=1cm, fill=red] (circle) at (0, 0) {};
+    \node[draw, circle, minimum width=3cm, anchor=south] at (2, 0) {Groß};
+  \end{tikzpicture}
+	\caption{Mit TikZ gezeichnete Kreise}
+	\label{fig:drawn}
+\end{figure}
+
+\section{Tabellen}
+\label{sec:Tabellen}
+
 \begin{table}[ht!]
-	\selectfont
 	\centering
 	\begin{tabular}{l|ccc}
 		Test & Feld & Feld & Feld \\
@@ -50,19 +34,11 @@ for i in lst:
 		Zwei & 4 & 5 & 6 \\
 		Drei & 7 & 8 & 9 \\
 	\end{tabular}
-	\caption{Tabelle}
-	\label{tab:tabelle}
+	\caption{Einfache Beispieltabelle}
+	\label{tab:plaintable}
 \end{table}
 
-\begin{figure}[ht!]
-	\centering
-	\includegraphics[width=0.25\linewidth]{images/example-image.png}
-	\caption{Grafik}
-	\label{fig:grafik2}
-\end{figure}
-
 \begin{table}[ht!]
-	\selectfont
 	\centering
 	\rowcolors{2}{gray!25}{white}
 	\begin{tabular}{ccc}
@@ -79,36 +55,41 @@ for i in lst:
 		\aboverulesepcolor{gray!25}
 		\bottomrule
 	\end{tabular}
-	\caption{Tabelle}
-	\label{tab:tabelle2}
+	\caption[Fancy Tabelle]{Längerer Tabellentitel, der nicht im Verzeichnis steht}
+	\label{tab:fancytable}
 \end{table}
 
-Beispiel für eine Quellenangabe \cite{article}.
+\section{Quelltext}
+\label{sec:Quelltext}
 
-\index{Hilfe}
+Einem Listing den Parameter \emph{float} zu geben verhindert, dass er über Seiten hinweg gebrochen wird.
+Dies kann bei kürzerem Code nützlich sein, um die visuelle Struktur beizubehalten.
 
-Beispiel für mehrere Quellenangaben \cite{book, inproceedings, misc}.
+\begin{lstlisting}[
+  caption={Code in Standardsprache aus style.tex (z.\,B. Python)},
+	label={lst:default},
+	float={ht!}
+]
+  # Standard Code, hier: Python
+  print("Hello World!")
+\end{lstlisting}
 
-\newpage
+\begin{lstlisting}[
+  language=Java,
+  caption={Code in Java},
+	label={lst:java},
+	float={ht!}
+]
+  // Java
+  System.out.println("Hello World!");
+\end{lstlisting}
 
-\begin{itemize}
-	\setlength\itemsep{0pt}
-	\item Listenelement 1,
-	\item Listenelement 2 und
-	\item Listenelement 3.
-\end{itemize}
-
-\begin{enumerate}
-	\setlength\itemsep{0pt}
-	\item Nummeriertes Listenelement 1,
-	\item nummeriertes Listenelement 2 und
-	\item nummeriertes Listenelement 3.
-\end{enumerate}
-
-Hier findet sich ein Beispiel für ein \textlabel[TL]{\textbf{Textlabel} (TL)}{text:tl}
-
-Hier wird das oben definierte Textlabel referenziert: \ref{text:tl}
-
-Hier noch ein Beispiel für ein Fußnote \footnote{Hallo ich bin's, \newline eine mehrzeilige Fußnote!}
-
-Und gleich noch eine! \footnote{Weil's so schön war...}
+\begin{lstlisting}[
+  language=None,
+  caption={Code ohne Highlighting},
+	label={lst:nohighlighting},
+	float={ht!}
+]
+  # Kein Highlighting
+  print("Hello World!")
+\end{lstlisting}

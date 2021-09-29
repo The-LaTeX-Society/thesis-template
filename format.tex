@@ -1,5 +1,5 @@
 %----------------------------------------------------------
-% Default settings
+% Default settings and packages
 %----------------------------------------------------------
 
 % Character encoding
@@ -22,9 +22,6 @@
 
 % Graphics
 \usepackage{graphicx}
-
-% To position floats (tables and figures) better
-%\usepackage{float}
 
 % Color
 \usepackage[table]{xcolor}
@@ -148,7 +145,7 @@
 \settowidth{\mytablength}{\cfttabpresnum}
 \setlength{\cfttabnumwidth}{\dimexpr\mytablength + 1.5em}
 
-% List of figures / tables counter
+% List of figures / tables counter continuous over chapters
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
@@ -165,10 +162,10 @@
 %----------------------------------------------------------
 
 % (Must be before including hyperref package as it tries to link footnotes which doesn't work if they are changed afterwards)
-\usepackage[hang]{footmisc}
+% (Option perpage can be disabled to restart footnote counter on every chapter instead of every page)
+\usepackage[hang,perpage]{footmisc}
 
 \setlength{\footnotemargin}{.8em}
-
 
 %----------------------------------------------------------
 % Links, PDF metadata and bookmarks
@@ -230,9 +227,9 @@
 	\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 }
 
-% Add "Anhang" to appendix chapter
+% Add appendix name to appendix chapter
 \newcommand{\appendixchap}{
-	\titleformat{\chapter}{\large\normalfont\bfseries}{Anhang \thechapter}{1ex}{}
+	\titleformat{\chapter}{\large\normalfont\bfseries}{\appendixpagename~\thechapter}{0.5em}{}
 }
 
 % Remove chapter number from section number
@@ -248,7 +245,7 @@
 	\renewcommand{\thelstlisting}{\Alph{chapter}\arabic{lstlisting}}
 }
 
-% Reset page, figure, table and listing numbers
+% Reset page, figure, table and listing counter
 % Also calls \appendixnumbering to reset single operations
 \newcommand{\appendixnum}{
 	\cleardoublepage
@@ -281,24 +278,17 @@
 
 % Chapter formatting in list of listings
 \renewcommand{\lstlistingname}{Quelltext}
-\renewcommand{\lstlistlistingname}{\lstlistingname verzeichnis}
+\renewcommand{\lstlistlistingname}{\lstlistingname{}verzeichnis}
 
 % Entry spacing in list of listings
-% (with the option to make it two-column compatible)
 \makeatletter
 \renewcommand\lstlistoflistings{%
-	%\if@twocolumn
-	%\@restonecoltrue\onecolumn
-	%\else
-	%\@restonecolfalse
-	%\fi
 	\chapter*{\lstlistlistingname}
 	\addcontentsline{toc}{chapter}{\lstlistlistingname}
 	\vspace*{1.5\topskip}
 	\@mkboth{\lstlistlistingname}
 	{\lstlistlistingname}
 	\@starttoc{lol}
-	%\if@restonecol\twocolumn\fi
 }
 \makeatother
 
@@ -312,7 +302,6 @@
 	\newlength{\mylstlistinglength}
 	\settowidth{\mylstlistinglength}{\cftlstlistingpresnum}
 	\setlength{\cftlstlistingnumwidth}{\dimexpr\mylstlistinglength + 1.5em}
-	%\setlength{\cftbeforelstlistingskip}{-\baselineskip}
 	\counterwithout{lstlisting}{chapter}
 }
 \makeatother
@@ -331,7 +320,12 @@
 \usetikzlibrary{shapes,calc,positioning}
 
 %-----------------------------
-% Tables
+% More control over positioning of floats
+
+%\usepackage{float}
+
+%-----------------------------
+% More table options
 
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -358,11 +352,11 @@
 
 %-----------------------------
 % Define textlabel-command to be able to reference text
+% Reference labels with \ref
 
 % Avoid expanding ref in textual label (not required with hyperref)
 \MakeRobust{\ref}
 
-% Define command
 \makeatletter
 \newcommand{\textlabel}[3][]{%
 	\@bsphack%

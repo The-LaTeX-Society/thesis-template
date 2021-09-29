@@ -14,15 +14,17 @@ Die nachfolgende Liste führt alle Ordner und Dateien auf, welche für den Erste
 - content/
   - ...
 - images/
+  - hfu_logo.eps
   - ...
-- Thesis.tex
 - acronyms.tex
 - appendix.tex
 - bibliography.bib
 - content.tex
 - foreword.tex
+- format.tex
 - metadata.tex
 - style.tex
+- Thesis.tex
 
 ### Abstract
 
@@ -37,6 +39,16 @@ Ein Anhangskapitel wird wie in den Beispieldateien im Order appendix/ erstellt. 
 \include{appendix/<Name der Datei>}
 ```
 
+Durch Voranstellen entsprechender Befehle kann die Nummerierung eingebundener Elemente entfernt werden. So kann, wenn z. B. nur eine Abbildung verwendet wird, diese als Abbildung A (statt Abbildung A1) betitelt werden.
+
+```LaTeX
+\appendixnum
+\appendixsinglefig % Nur eine Abbildung
+\appendixsingletab % Nur eine Tabelle
+\appendixsinglelst % Nur ein Quellcodebeispiel
+\include{appendix/<Name der Datei>}
+```
+
 ### Kapitel
 
 Kapitel der Thesis werden je als Datei in dem Ordner content/ angelegt. Eingebunden werden Kapitel über die Datei content.tex mit folgendem Befehl.
@@ -47,17 +59,15 @@ Kapitel der Thesis werden je als Datei in dem Ordner content/ angelegt. Eingebun
 
 ### Bilder
 
-Bilder, welche für die Thesis verwendet werden, sollten unter dem Pfad images/ abgelegt werden. Die darin vorhandene Datei hfu_logo.eps wird für die Titelseite benötigt. Bilder werden unter Verwendung des zu der Datei Thesis.tex relativen Pfades eingebunden.
+Bilder, welche für die Thesis verwendet werden, sollten unter dem Pfad images/ abgelegt werden. Bilder werden unter Verwendung des zu der Datei Thesis.tex relativen Pfades eingebunden.
 
 ```LaTeX
 \includegraphics{images/example-image.png}
 ```
 
+Die in der Titelseite verwendete Datei hfu_logo.eps wird nicht mit dieser Vorlage mitgeliefert. Sie kann über das Markenportal der HFU (FELIX: https://marke.hs-furtwangen.de/) bezogen werden und muss im Ordner images/ abgelegt werden.
+
 ### Zu bearbeitende Dateien
-
-#### Thesis.tex
-
-Hier wird die Struktur der Thesis festgelegt. In dieser Datei sollten keine direkten Änderungen vorgenommen werden. Es können jedoch gewisse Punkte wie ein Vorwort, Verzeichnisse, römische Seitenzählung oder ein Anhang durch ein- / auskommentieren eingebunden werden. 
 
 #### acronyms.tex
 
@@ -91,30 +101,55 @@ Sollte der Kasus des Akronyms nicht in den ersten Satz passen, kann das Ausschre
 
 #### bibliography.bib
 
-Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meisten gängigen Portalen direkt übernommen werden.
+Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meisten gängigen Portalen direkt übernommen werden. Der verwendete Zitierstil ist APA. Dies kann bei Bedarf in der Datei format.tex angepasst werden. Generell wird Groß- und Kleinschreibung in Titeln und Buchtiteln von diesem Stil entfernt. Da dies in deutschen Arbeiten unüblich ist kann durch Verwendung doppelter geschweifter Klammern in entsprechenden Feldern ein Eingriff verhindert werden.
+
+```BibTeX
+@book{mustermann20
+  author = {Max Mustermann},
+  title = {{Ein Buch mit Groß- und Kleinschreibung}},
+  year = {2020}
+}
+```
 
 #### foreword.tex
 
 Sollte ein Vorwort gewünscht sein, kann dieses hier eingefügt werden. Der Text in eckigen Klammern muss hierbei ersetzt werden, während die restlichen Zeilen unberührt bleiben sollten.
 
+#### format.tex
+
+Die Datei format.tex bietet eine vorgefertigte Formatierung des Dokuments entsprechend der HFU-Vorgabe. Hier werden alle nicht exklusiv auf den Style bezogenen Pakete eingebunden und konfiguriert.
+
+Es können bei Bedarf Anpassungen vorgenommen werden, dies ist jedoch in den meisten Fällen nicht nötig.
+
+Am Ende findet sich ein Abschnitt für weitere Pakete, sollten spezifische Pakete benötigt werden. Außerdem können die in diesem Abschnitt eingebundenen Pakete und definierten Befehle gelöscht werden, sollten sie unerwünscht sein.
+
+Kann in Sonderfällen oder zum Einbinden weiterer Pakete bearbeitet werden. So kann z. B. im Paket footmisc ausgestellt werden, dass Fußnotenzählung auf jeder Seite neu beginnt oder der verwendete Zitierstil geändert werden. Hier können auch definierte Abstände (z. B. bei der Nummerierung von Abbildungen, Tabellen oder Fußnoten) geändert werden. Der Nutzen einzelner Pakete und deren Konfiguration ist innerhalb der Datei durch Kommentare genauer erklärt.
+
+(Für die meisten Konfigurationen ist die style.tex Datei zu bevorzugen.)
+
 #### metadata.tex
 
-Hier werden die entsprechenden Metadaten eingefügt, welche über die Vorlage verwendet werden. Sie können auch jederzeit mit ihrem entsprechenden Befehl (bspw. ```\metadataTitle```) verwendet werden.
+Hier werden die entsprechenden Metadaten eingefügt, welche über die Vorlage verwendet werden. Sie können auch jederzeit mit ihrem entsprechenden Befehl (bspw. ```\metadataTitle```) im Text verwendet werden.
 
 #### style.tex
 
-Hier können stilistische Änderungen vorgenommen werden, ohne das Backend der Thesis bearbeiten zu müssen. Es stehen unter anderem Optionen zu verschiedenen Hervorhebungen, Schriftarten und der Darstellung von Quelltext zur Verfügung.
+Hier können stilistische Änderungen vorgenommen werden, ohne das Backend der Thesis bearbeiten zu müssen. Es stehen unter anderem Optionen zu verschiedenen Hervorhebungen, Schriftarten und der Darstellung von Tabellen und Quelltext zur Verfügung.
 
 Außerdem wird hier die Silbentrennung unbekannter Wörter definiert.
 
-Es ist empfohlen, hier definierte Hervorhebungen (```\code{...}```) zu verwenden, anstatt z. B. bei jedem Quelltext in der Thesis erneut ```\ttfamily``` zu verwenden.
+Es ist empfohlen, hier definierte Hervorhebungen (z. B. ```\code{...}```) zu verwenden oder neue zu definieren, anstatt bei jedem Quelltext erneut ```\texttt{...}``` zu verwenden.
 
-### Nicht / selten zu bearbeitende Dateien
+#### Thesis.tex
 
-Die folgenden Dateien müssen nur in Sonderfällen bearbeitet werden. Hier werden diverse Formatierungen, Seitenlayouts und Standardtexte festgelegt.
+Hier wird die Struktur der Thesis festgelegt. In dieser Datei sollten keine direkten Änderungen vorgenommen werden. Es können jedoch gewisse Punkte wie ein Vorwort, Verzeichnisse, römische Seitenzählung oder ein Anhang durch ein- / auskommentieren eingebunden werden.
+
+Dies ist die zu kompilierende Datei.
+
+### Nicht zu bearbeitende Dateien
+
+Die folgenden Dateien müssen nur in Ausnahmefällen bearbeitet werden. Hier werden diverse Formatierungen, Seitenlayouts und Standardtexte festgelegt.
 
 - abstract.tex
-- format.tex
 - statutory_declaration.tex
 - title.tex
 
@@ -124,14 +159,6 @@ Hier werden die Dateien des Abstract-Verzeichnisses eingebunden.
 
 Muss nicht bearbeitet werden.
 
-#### format.tex
-
-Hier werden alle Pakete eingebunden und Formatierungen entsprechend der HFU-Vorgabe definiert.
-
-Am Ende findet sich ein Abschnitt für weitere Pakete, sollten spezifische Pakete benötigt werden. Außerdem können die in diesem Abschnitt eingebundenen Pakete und definierten Befehle gelöscht werden, sollten sie unerwünscht sein.
-
-Kann in Sonderfällen oder zum Einbinden weiterer Pakete bearbeitet werden.
-
 #### statutory_declaration.tex
 
 Hier ist der HFU-Standardtext der eidesstattlichen Erklärung definiert. Für Namen, Datum und Ort wird sich bei den Metadaten bedient.
@@ -140,6 +167,6 @@ Muss nicht bearbeitet werden.
 
 #### title.tex
 
-Hier ist das Layout der Titelseite definiert. Bedient sich zum Befüllen bei den Metadaten.
+Hier ist das Layout der Titelseite definiert. Bedient sich zum Befüllen bei den Metadaten. Das Logo der HFU muss, wie bereits oben erwähnt, von dort bezogen werden.
 
 Muss nicht bearbeitet werden.

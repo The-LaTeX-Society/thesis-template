@@ -19,6 +19,12 @@
 %	{\ifthenelse{\equal{#1}{lot}}{}%
 %	{{\ifthenelse{\equal{#1}{lol}}{}{\svaddcontentsline{#1}{#2}{#3}}}}}}
 
+%----------------------------------------------------------
+% Appendix chapters
+% Must always be preceded by \appendixnum
+% If only a single figure / table / listing is used can also be preceded by
+% \appendixsinglefig, \appendixsingletab or \appendixsinglelst
+%----------------------------------------------------------
 \begin{appendices}
 	\pagestyle{fancyappendix}
 	\appendixchap
@@ -26,5 +32,6 @@
 	\appendixnum
 	\include{appendix/1_Beispiel}
 	\appendixnum
+	\appendixsinglefig
 	\include{appendix/2_Beispiel}
 \end{appendices}

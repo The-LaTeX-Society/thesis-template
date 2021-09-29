@@ -2,9 +2,8 @@
 % Styles
 %----------------------------------------------------------
 
-\newcommand{\code}[1]{{\ttfamily #1}}
-\newcommand{\name}[1]{{,,#1``}}
-\newcommand{\emphasize}[1]{{\itshape #1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\name}[1]{,,#1``}
 
 % Change how \emph emphasizes inside an italic environment
 %\renewcommand\eminnershape{}
@@ -16,9 +15,16 @@
 % Change font to sans serif
 %\renewcommand{\familydefault}{\sfdefault}
 
-% Font packages
-\usepackage{gentium}
-\usepackage{inconsolata}
+% Example font packages
+%\usepackage{gentium}
+%\usepackage{inconsolata}
+
+%----------------------------------------------------------
+% Tables
+%----------------------------------------------------------
+
+% Change table default size to 10pt
+\AtBeginEnvironment{tabular}{\footnotesize}
 
 %----------------------------------------------------------
 % Depth of section entries
