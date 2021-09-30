@@ -2,9 +2,11 @@
 
 Vorlage für wissenschaftliche Arbeiten – insbesondere Bachelor- und Masterarbeiten – an der Hochschule Furtwangen.
 
+Je nach Kenntnisstand im Bereich LaTeX kann diese Vorlage sehr kompliziert wirken. Durch logische Aufteilung in viele kleine Dateien soll für eine bessere Übersicht über das Projekt gesorgt werden. Auch können sich so Personen mit weniger LaTeX-Erfahrung vorerst auf wenige Dateien beschränken und voreingestellte Formatierungen ignorieren.
+
 ## Dateistruktur
 
-Die nachfolgende Liste führt alle Ordner und Dateien auf, welche für den Ersteller der Thesis bei der Bearbeitung der Thesis bearbeitet werden können / sollen.
+Die nachfolgende Liste führt alle Ordner und Dateien auf, welche vom Ersteller der Thesis bearbeitet werden können / sollen.
 
 - abstract/
   - Abstract_English.tex
@@ -104,7 +106,7 @@ Sollte der Kasus des Akronyms nicht in den ersten Satz passen, kann das Ausschre
 Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meisten gängigen Portalen direkt übernommen werden. Der verwendete Zitierstil ist APA. Dies kann bei Bedarf in der Datei format.tex angepasst werden. Generell wird Groß- und Kleinschreibung in Titeln und Buchtiteln von diesem Stil entfernt. Da dies in deutschen Arbeiten unüblich ist kann durch Verwendung doppelter geschweifter Klammern in entsprechenden Feldern ein Eingriff verhindert werden.
 
 ```BibTeX
-@book{mustermann20
+@book{mustermann20,
   author = {Max Mustermann},
   title = {{Ein Buch mit Groß- und Kleinschreibung}},
   year = {2020}
@@ -115,9 +117,11 @@ Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meiste
 
 Sollte ein Vorwort gewünscht sein, kann dieses hier eingefügt werden. Der Text in eckigen Klammern muss hierbei ersetzt werden, während die restlichen Zeilen unberührt bleiben sollten.
 
+Ist ein Vorwort nicht gewünscht, kann es in der Datei Thesis.tex auskommentiert werden.
+
 #### format.tex
 
-Die Datei format.tex bietet eine vorgefertigte Formatierung des Dokuments entsprechend der HFU-Vorgabe. Hier werden alle nicht exklusiv auf den Style bezogenen Pakete eingebunden und konfiguriert.
+Die Datei format.tex bietet eine vorgefertigte Formatierung des Dokuments entsprechend der HFU-Vorgabe. Hier werden alle nicht exklusiv auf den Style bezogenen Pakete eingebunden und konfiguriert. Es sind bereits diverse Einstellungen vorgenommen, die das Gesamtbild der Arbeit verbessern sollen.
 
 Es können bei Bedarf Anpassungen vorgenommen werden, dies ist jedoch in den meisten Fällen nicht nötig.
 
@@ -137,11 +141,11 @@ Hier können stilistische Änderungen vorgenommen werden, ohne das Backend der T
 
 Außerdem wird hier die Silbentrennung unbekannter Wörter definiert.
 
-Es ist empfohlen, hier definierte Hervorhebungen (z. B. ```\code{...}```) zu verwenden oder neue zu definieren, anstatt bei jedem Quelltext erneut ```\texttt{...}``` zu verwenden.
+Es ist empfohlen, hier definierte Hervorhebungen (z. B. ```\code{...}```) zu verwenden oder neue zu definieren, anstatt im Text explizite Formatierung (z. B. ```\texttt{...}```) zu verwenden.
 
 #### Thesis.tex
 
-Hier wird die Struktur der Thesis festgelegt. In dieser Datei sollten keine direkten Änderungen vorgenommen werden. Es können jedoch gewisse Punkte wie ein Vorwort, Verzeichnisse, römische Seitenzählung oder ein Anhang durch ein- / auskommentieren eingebunden werden.
+Hier wird die Struktur der Thesis festgelegt. In dieser Datei sollten keine direkten Änderungen vorgenommen werden. Es können jedoch gewisse Dinge wie ein Vorwort, Verzeichnisse, römische Seitenzählung oder ein Anhang durch ein- / auskommentieren eingebunden bzw. entfernt werden.
 
 Dies ist die zu kompilierende Datei.
 
