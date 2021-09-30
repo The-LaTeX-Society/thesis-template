@@ -4,6 +4,8 @@ Vorlage für wissenschaftliche Arbeiten – insbesondere Bachelor- und Masterarb
 
 Je nach Kenntnisstand im Bereich LaTeX kann diese Vorlage sehr kompliziert wirken. Durch logische Aufteilung in viele kleine Dateien soll für eine bessere Übersicht über das Projekt gesorgt werden. Auch können sich so Personen mit weniger LaTeX-Erfahrung vorerst auf wenige Dateien beschränken und voreingestellte Formatierungen ignorieren.
 
+[Demo](https://github.com/The-LaTeX-Society/thesis-template/releases/latest/download/Thesis.pdf)
+
 ## Dateistruktur
 
 Die nachfolgende Liste führt alle Ordner und Dateien auf, welche vom Ersteller der Thesis bearbeitet werden können / sollen.
