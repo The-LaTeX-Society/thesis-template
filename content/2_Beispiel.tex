@@ -132,27 +132,28 @@ Wie diese Felder sich auswirken, kann im Literaturverzeichnis dieser Demo gesehe
 			\cline{3-7}
 			& & article & book & inproceedings & techreport & misc & \\
 			\hline
-			author & Autor(en) & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Mehrere Autoren werden mit \emph{and} getrennt. Autoren können als \name{Vorname Nachname} oder \name{Nachname, Vorname} angegeben werden. \\
-			year & Erscheinungsjahr & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
+			author* & Autor(en) & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Mehrere Autoren werden mit \emph{and} getrennt. Autoren können als \name{Vorname Nachname} oder \name{Nachname, Vorname} angegeben werden. \\
+			year* & Erscheinungsjahr & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
 			day & Erscheinungstag & $\times$ & & $\times$ & $\times$ & $\times$ & \\
 			month & Erscheinungsmonat & $\times$ & & $\times$ & $\times$ & $\times$ & \\
-			title & Titel & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Groß- / Kleinschreibung wird entfernt. Kann vermieden werden, indem das komplette Feld in zwei paar geschweifte Klammern geschrieben wird. \\
+			title* & Titel & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Groß- / Kleinschreibung wird entfernt. Kann vermieden werden, indem das komplette Feld in zwei paar geschweifte Klammern geschrieben wird. \\
 			englishtitle & Englischer Titel & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Optional falls Werk einen übersetzten Titel hat. Groß- / Kleinschreibung wird wie bei \emph{title} entfernt. \\
 			editor & Herausgeber & & $\times$ & & & & \\
 			translator & Übersetzer & $\times$ & $\times$ & & & & \\
 			type & Art des Werks & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Bspw. Doktorarbeit, Rezension, Broschüre \\
-			journal & Journal, in dem Artikel erschienen ist & $\times$ & & & & & \\
-			volume & Ausgabe & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
-			number & Nummer der Ausgabe & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
+			journal* & Journal, in dem Artikel erschienen ist & $\times$ & & & & & \\
+			volume* & Ausgabe & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
+			number* & Nummer der Ausgabe & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
 			pages & Referenzierte Seiten & $\times$ & & & & & \\
 			howpublished & Veröffentlichungsart & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Beschreibung, wie etwas veröffentlicht wurde (z.\,B. Name einer Webseite, \name{Unveröffentlichte Arbeit}, \name{Vorgestellt auf Konferenz}). \\
-			address & Adresse des Verlags / der Institution & & $\times$ & $\times$ & $\times$ & $\times$ & Meist nur Stadt oder bei amerikanischen Verlagen Stadt, Staat. \\
-			publisher & Verlag & & $\times$ & $\times$ & & $\times$ & \\
-			institution & Veröffentlichende Institution & & & & $\times$ & & \\
-			\makecell[tl]{urldate / \\ lastchecked} & Letztes Zugriffsdatum auf URL & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Nur in Kombination mit \emph{url} nötig. Felder urldate und lastchecked sind austauschbar. \\
-			url & URL & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
+			address* & Adresse des Verlags / der Institution & & $\times$ & $\times$ & $\times$ & $\times$ & Meist nur Stadt oder bei amerikanischen Verlagen Stadt, Staat. \\
+			publisher* & Verlag & & $\times$ & $\times$ & & $\times$ & \\
+			institution* & Veröffentlichende Institution & & & & $\times$ & & \\
+			\makecell[tl]{urldate* / \\ lastchecked} & Letztes Zugriffsdatum auf URL & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & Nur in Kombination mit \emph{url} nötig. Felder urldate und lastchecked sind austauschbar. \\
+			url* & URL & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
 			note & Notizen & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
 			doi & DOI & $\times$ & $\times$ & $\times$ & $\times$ & $\times$ & \\
+			\multicolumn{8}{l}{\rule{0pt}{4ex}*\,Markierte Felder sind besonders wichtig. Alle anderen sind in den meisten Fällen nur optional.}
 		\end{tabular}
 	}
 	\caption{Felder für bibliography.bib}
