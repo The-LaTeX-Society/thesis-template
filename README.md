@@ -105,7 +105,7 @@ Sollte der Kasus des Akronyms nicht in den ersten Satz passen, kann das Ausschre
 
 #### bibliography.bib
 
-Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meisten gängigen Portalen direkt übernommen werden. Der verwendete Zitierstil ist APA. Dies kann bei Bedarf in der Datei format.tex angepasst werden. Generell wird Groß- und Kleinschreibung in Titeln und Buchtiteln von diesem Stil entfernt. Da dies in deutschen Arbeiten unüblich ist kann durch Verwendung doppelter geschweifter Klammern in entsprechenden Feldern ein Eingriff verhindert werden.
+Hier werden verwendete Quellen abgelegt. Entsprechender Code kann von den meisten gängigen Portalen direkt übernommen werden. Der verwendete Zitierstil ist APA. Dies kann bei Bedarf in der Datei format.tex angepasst werden. Generell wird Groß- und Kleinschreibung in Titeln und Buchtiteln von diesem Stil entfernt. Da dies in deutschen Arbeiten unüblich ist, kann durch Verwendung doppelter geschweifter Klammern in entsprechenden Feldern ein Eingriff verhindert werden.
 
 ```BibTeX
 @book{mustermann20,
