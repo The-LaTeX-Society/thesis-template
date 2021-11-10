@@ -10,9 +10,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install texlive texlive-latex-extra texlive-bibtex-extra texlive-lang-german texlive-plain-generic texlive-font-utils texlive-science latexmk
-      - name: Install Gentium dependecies
-        run: |
-          sudo apt install texlive-fonts-extra
       - name: Compile LaTeX document
         run: |
           latexmk Thesis.tex -interaction=nonstopmode -file-line-error -pdf --shell-escape
