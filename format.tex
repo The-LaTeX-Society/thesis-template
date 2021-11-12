@@ -153,8 +153,8 @@
 % (Uses etoolbox package)
 % (Must be before including hyperref package as it changes \@chapter to \Hy@org@chapter)
 \makeatletter
-\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}% LoF
-\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}% LoT
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}%
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}%
 \makeatother
 
 %----------------------------------------------------------
@@ -268,6 +268,20 @@
 
 \newcommand{\appendixsinglelst}{
 	\renewcommand{\thelstlisting}{\Alph{chapter}}
+}
+
+% To remove figures, tables and listings from LOF, LOT and LOL
+\usepackage{ifthen}
+
+\let\tmpaddcontentsline\addcontentsline
+\newcommand{\appendixaddcontentsline}[3]{%
+	\ifthenelse{\equal{#1}{lof}}{}%
+	{\ifthenelse{\equal{#1}{lot}}{}%
+	{{\ifthenelse{\equal{#1}{lol}}{}%
+	{\tmpaddcontentsline{#1}{#2}{#3}}}}}}
+
+\newcommand{\appendixlists}{
+	\renewcommand{\addcontentsline}{\appendixaddcontentsline}
 }
 
 %----------------------------------------------------------

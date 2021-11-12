@@ -1,37 +1,42 @@
+%----------------------------------------------------------
+% General appendix settings
+%----------------------------------------------------------
+
 % Remove page number from appendix divider page
 \makeatletter
 \patchcmd{\@chap@pppage}{\thispagestyle{plain}}{\thispagestyle{empty}}{}{}
 \makeatother
 
+% Appendix page
 \appendix
+
+% Reset counters and add letters to counters on every include
+\pretocmd{\include}{\appendixnum}{}{}
+
+% Change pagestyle of appendix to include appendix name in header
+\pagestyle{fancyappendix}
+
+% Reformat chapter and section numbering
+\appendixchap
+\appendixsec
 
 %----------------------------------------------------------
 % Prevent sections and subsections from being added to table of contents (OPTIONAL)
 %----------------------------------------------------------
+
 \appendixtoc
 
 %----------------------------------------------------------
 % Remove figures, tables and listings from LOF, LOT and LOL (OPTIONAL)
 %----------------------------------------------------------
-%\let\svaddcontentsline\addcontentsline
-%\renewcommand\addcontentsline[3]{%
-%	\ifthenelse{\equal{#1}{lof}}{}%
-%	{\ifthenelse{\equal{#1}{lot}}{}%
-%	{{\ifthenelse{\equal{#1}{lol}}{}{\svaddcontentsline{#1}{#2}{#3}}}}}}
+
+%\appendixlists
 
 %----------------------------------------------------------
 % Appendix chapters
-% Must always be preceded by \appendixnum
-% If only a single figure / table / listing is used can also be preceded by
-% \appendixsinglefig, \appendixsingletab or \appendixsinglelst
 %----------------------------------------------------------
+
 \begin{appendices}
-	\pagestyle{fancyappendix}
-	\appendixchap
-	\appendixsec
-	\appendixnum
 	\include{appendix/1_Beispiel}
-	\appendixnum
-	\appendixsinglefig
 	\include{appendix/2_Beispiel}
 \end{appendices}

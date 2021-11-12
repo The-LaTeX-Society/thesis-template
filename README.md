@@ -36,22 +36,23 @@ Das Abstract wird allein durch die zwei Dateien im Ordner abstract/ editiert. In
 
 ### Anhang
 
-Ein Anhangskapitel wird wie in den Beispieldateien im Order appendix/ erstellt. Um dieses Kapitel in den Anhang der Thesis aufzunehmen, muss in der Datei appendix.tex innerhalb der appendices-Umgebung folgender Befehl angehängt werden. (Siehe Beispielanhang.)
+Ein Anhangskapitel wird, wie in den Beispieldateien, im Order appendix/ erstellt. Um dieses Kapitel in den Anhang der Thesis aufzunehmen, muss in der Datei appendix.tex innerhalb der appendices-Umgebung folgender Befehl verwendet werden. (Siehe Beispielanhang.)
 
 ```LaTeX
-\appendixnum
 \include{appendix/<Name der Datei>}
 ```
 
-Durch Voranstellen entsprechender Befehle kann die Nummerierung eingebundener Elemente entfernt werden. So kann, wenn z. B. nur eine Abbildung verwendet wird, diese als Abbildung A (statt Abbildung A1) betitelt werden.
+Soll in einem Anhangskapitel nur je eine Abbildung, Tabelle oder ein Quelltextbeispiel verwendet werden, können dem Kapitel entsprechend folgende Befehle vorangestellt werden. Diese unterdrücken für dieses Kapitel die Nummerierung des entsprechenden Elements. So kann, wenn z. B. nur eine Abbildung verwendet wird, diese als Abbildung A (statt Abbildung A1) betitelt werden.
 
 ```LaTeX
-\appendixnum
 \appendixsinglefig % Nur eine Abbildung
 \appendixsingletab % Nur eine Tabelle
-\appendixsinglelst % Nur ein Quellcodebeispiel
-\include{appendix/<Name der Datei>}
+\appendixsinglelst % Nur ein Quelltextbeispiel
+
+\chapter{...}
 ```
+
+In der Datei appendix.tex finden sich zusätzlich die Optionen, Abschnitte und Unterabschnitte innerhalb von Anhängen aus dem Inhaltsverzeichnis, sowie Abbildungen, Tabellen und Quelltextbeispiele aus ihren entsprechenden Verzeichnissen zu entfernen. Diese Optionen können separat durch ein- / auskommentieren verwendet oder ignoriert werden.
 
 ### Kapitel
 
