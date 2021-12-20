@@ -14,10 +14,10 @@
 
 \begin{figure}[ht!]
 	\centering
-  \begin{tikzpicture}
-    \node[draw, circle, minimum width=1cm, fill=red] (circle) at (0, 0) {};
-    \node[draw, circle, minimum width=3cm, anchor=south] at (2, 0) {Groß};
-  \end{tikzpicture}
+	\begin{tikzpicture}
+		\node[draw, circle, minimum width=1cm, fill=red] (circle) at (0, 0) {};
+		\node[draw, circle, minimum width=3cm, anchor=south] at (2, 0) {Groß};
+	\end{tikzpicture}
 	\caption{Mit TikZ gezeichnete Kreise}
 	\label{fig:drawn}
 \end{figure}
@@ -44,7 +44,7 @@
 	\begin{tabular}{ccc}
 		\toprule
 		\belowrulesepcolor{gray!50}
-	    \rowcolor{gray!50}
+			\rowcolor{gray!50}
 		& \bfseries Head & \bfseries Head \\
 		\aboverulesepcolor{gray!50}
 		\midrule
@@ -66,30 +66,30 @@ Einem Listing den Parameter \emph{float} zu geben verhindert, dass er über Seit
 Dies kann bei kürzerem Code nützlich sein, um die visuelle Struktur beizubehalten.
 
 \begin{lstlisting}[
-  caption={Code in Standardsprache aus style.tex (z.\,B. Python)},
+	caption={Code in Standardsprache aus style.tex (z.\,B. Python)},
 	label={lst:default},
 	float={ht!}
 ]
-  # Standard Code, hier: Python
-  print("Hello World!")
+	# Standard Code, hier: Python
+	print("Hello World!")
 \end{lstlisting}
 
 \begin{lstlisting}[
-  language=Java,
-  caption={Code in Java},
+	language=Java,
+	caption={Code in Java},
 	label={lst:java},
 	float={ht!}
 ]
-  // Java
-  System.out.println("Hello World!");
+	// Java
+	System.out.println("Hello World!");
 \end{lstlisting}
 
 \begin{lstlisting}[
-  language=None,
-  caption={Code ohne Highlighting},
+	language=None,
+	caption={Code ohne Highlighting},
 	label={lst:nohighlighting},
 	float={ht!}
 ]
-  # Kein Highlighting
-  print("Hello World!")
+	# Kein Highlighting
+	print("Hello World!")
 \end{lstlisting}
