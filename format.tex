@@ -145,9 +145,10 @@
 \settowidth{\mytablength}{\cfttabpresnum}
 \setlength{\cfttabnumwidth}{\dimexpr\mytablength + 1.5em}
 
-% List of figures / tables counter continuous over chapters
+% List of figures / list of tables / equations counter continuous over chapters
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
 
 % Prevent spacing between figures / tables of different chapters
 % (Uses etoolbox package)
