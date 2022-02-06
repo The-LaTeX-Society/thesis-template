@@ -98,10 +98,11 @@ Sollte die gewünschte Kurzform von dem verwendeten Code-Kürzel abweichen, kann
 \acp{abc} % Plural
 ```
 
-Sollte der Kasus des Akronyms nicht in den ersten Satz passen, kann das Ausschreiben der langen Form des Akronyms blockiert werden und das Wort entsprechend selbst geschrieben werden.
+Sollte die Deklination des Akronyms nicht in den ersten Satz passen, kann das Ausschreiben der langen Form des Akronyms blockiert werden und das Wort entsprechend selbst geschrieben werden.
 
 ```LaTeX
-Alphabeten (\acspl{abc})
+des Alphabets (\acslabel{abc})
+den Alphabeten (\acsplabel{abc}) % Plural
 ```
 
 #### bibliography.bib

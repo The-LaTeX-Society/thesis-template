@@ -215,9 +215,14 @@
 
 % Set label to create hyperlink from list of acronyms and print short form
 \makeatletter
-\newcommand{\acspl}[1]{%
+\newcommand{\acslabel}[1]{%
 	\AC@placelabel{#1}%
 	\acs{#1}%
+}
+
+\newcommand{\acsplabel}[1]{%
+	\AC@placelabel{#1}%
+	\acsp{#1}%
 }
 \makeatother
 
