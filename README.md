@@ -101,7 +101,7 @@ Sollte die gewünschte Kurzform von dem verwendeten Code-Kürzel abweichen, kann
 Sollte der Kasus des Akronyms nicht in den ersten Satz passen, kann das Ausschreiben der langen Form des Akronyms blockiert werden und das Wort entsprechend selbst geschrieben werden.
 
 ```LaTeX
-\acused{abc} Alphabeten (\acp{abc})
+Alphabeten (\acspl{abc})
 ```
 
 #### bibliography.bib

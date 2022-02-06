@@ -213,6 +213,14 @@
 
 \usepackage[printonlyused]{acronym}
 
+% Set label to create hyperlink from list of acronyms and print short form
+\makeatletter
+\newcommand{\acspl}[1]{%
+	\AC@placelabel{#1}%
+	\acs{#1}%
+}
+\makeatother
+
 %----------------------------------------------------------
 % Appendix
 %----------------------------------------------------------
