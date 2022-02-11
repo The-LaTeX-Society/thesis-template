@@ -233,8 +233,22 @@
 \usepackage[titletoc,page,toc]{appendix}
 
 % Rename appendix page and table of contents entry
-\renewcommand{\appendixpagename}{Anhang}
-\renewcommand{\appendixtocname}{Anhang}
+\renewcommand{\appendixpagename}{\appendixname}
+\renewcommand{\appendixtocname}{\appendixname}
+
+% Add appendix name to autoref
+\newcommand{\Appendixautorefname}{\appendixname}
+\makeatletter
+\@ifpackagewith{babel}{ngerman}{%
+  \addto\extrasngerman{%
+    \@ifundefined{Anhangautorefname}{%
+      \newcommand{\Anhangautorefname}{\appendixname}%
+    }{%
+      \renewcommand{\Anhangautorefname}{\appendixname}%
+    }
+  }
+}
+\makeatother
 
 % Prevent sections and subsections from being added to table of contents
 \newcommand{\appendixtoc}{
