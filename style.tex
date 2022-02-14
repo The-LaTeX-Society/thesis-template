@@ -18,6 +18,7 @@
 % Example font packages
 % Don't use multiple at once except for different use cases like regular fonts (lmodern, gentium) and monospace fonts (inconsolata)
 \usepackage{lmodern} % Default LaTeX font (but scalable)
+%\usepackage{eulervm} % Make Euler-fonts (like Gentium) usable in math mode
 %\usepackage{gentium}
 %\usepackage{inconsolata}
 
@@ -91,6 +92,18 @@
 {
 	identifierstyle=
 }
+
+%----------------------------------------------------------
+% Theorems
+%----------------------------------------------------------
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newcommand{\definitionautorefname}{Definition}
+
+\theoremstyle{definition}
+\newtheorem{example}{Beispiel}
+\newcommand{\exampleautorefname}{Beispiel}
 
 %----------------------------------------------------------
 % Define new words with hyphenation
