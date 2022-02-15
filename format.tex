@@ -251,7 +251,7 @@
 \makeatother
 
 % Prevent sections and subsections from being added to table of contents
-\newcommand{\appendixtoc}{
+\newcommand{\appendixnotocdepth}{
 	\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
 }
 
@@ -308,7 +308,7 @@
 	{{\ifthenelse{\equal{#1}{lol}}{}%
 	{\tmpaddcontentsline{#1}{#2}{#3}}}}}}
 
-\newcommand{\appendixlists}{
+\newcommand{\appendixnolists}{
 	\renewcommand{\addcontentsline}{\appendixaddcontentsline}
 }
 
