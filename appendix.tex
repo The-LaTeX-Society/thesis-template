@@ -7,9 +7,6 @@
 \patchcmd{\@chap@pppage}{\thispagestyle{plain}}{\thispagestyle{empty}}{}{}
 \makeatother
 
-% Appendix page
-\appendix
-
 % Reset counters and add letters to counters on every include
 \pretocmd{\include}{\appendixnum}{}{}
 
@@ -19,6 +16,14 @@
 % Reformat chapter and section numbering
 \appendixchap
 \appendixsec
+
+%----------------------------------------------------------
+% Appendix divider page (OPTIONAL)
+%----------------------------------------------------------
+
+\cleardoublepage
+\addappheadtotoc % Add appendix divider page to table of contents
+\appendixpage    % Add appendix divider page to document
 
 %----------------------------------------------------------
 % Prevent sections and subsections from being added to table of contents (OPTIONAL)
