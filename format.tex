@@ -240,13 +240,13 @@
 \newcommand{\Appendixautorefname}{\appendixname}
 \makeatletter
 \@ifpackagewith{babel}{ngerman}{%
-  \addto\extrasngerman{%
-    \@ifundefined{Anhangautorefname}{%
-      \newcommand{\Anhangautorefname}{\appendixname}%
-    }{%
-      \renewcommand{\Anhangautorefname}{\appendixname}%
-    }
-  }
+	\addto\extrasngerman{%
+		\@ifundefined{Anhangautorefname}{%
+			\newcommand{\Anhangautorefname}{\appendixname}%
+		}{%
+			\renewcommand{\Anhangautorefname}{\appendixname}%
+		}
+	}
 }
 \makeatother
 
