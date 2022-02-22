@@ -374,15 +374,15 @@
 %----------------------------------------------------------
 
 %-----------------------------
+% Extra symbols and notations
+
+\usepackage{amsmath, amssymb}
+
+%-----------------------------
 % Draw
 
 \usepackage{tikz}
-\usetikzlibrary{shapes,calc,positioning}
-
-%-----------------------------
-% More control over positioning of floats
-
-%\usepackage{float}
+\usetikzlibrary{arrows.meta,calc,positioning,shapes}
 
 %-----------------------------
 % More table options
@@ -436,15 +436,17 @@
 \usepackage{enumitem}
 
 %-----------------------------
-% Enable use of regular quotation marks
+% More control over positioning of floats
 
-\usepackage{csquotes}
-\MakeOuterQuote{"}
+%\usepackage{float}
 
 %-----------------------------
-% Extra symbols and notations
+% Enable use of regular quotation marks in text
+% This might break some commands like "= for breakable hyphens
+% Consider using a custom style command like \name{...} (see style.tex)
 
-\usepackage{amsmath, amssymb}
+%\usepackage{csquotes}
+%\MakeOuterQuote{"}
 
 %-----------------------------
 % Blindtext
