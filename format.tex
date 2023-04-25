@@ -35,6 +35,10 @@
 % Prevent widows and orphans (single-line pagebreaks)
 \usepackage[all]{nowidow}
 
+% Prevent floats from being typeset before their definition
+% For floats to appear closely after their first reference the definition should be done right after the referencing text
+\usepackage{flafter}
+
 % Improvements to spacing (kerning, ...)
 \usepackage{microtype}
 
@@ -434,11 +438,6 @@
 % Flexible enumerations
 
 \usepackage{enumitem}
-
-%-----------------------------
-% More control over positioning of floats
-
-%\usepackage{float}
 
 %-----------------------------
 % Enable use of regular quotation marks in text
